@@ -1,0 +1,239 @@
+/* ============================================================
+   LAIVE AI — Award site styles
+   Liquid glass, scroll choreography, headline animation.
+   Tunable via CSS vars set by the Tweaks panel:
+     --lgi          glass intensity 1–10   (default 8)
+     --mo           motion multiplier      (default 1; 0 = off)
+   ============================================================ */
+
+html { scroll-behavior: smooth; }
+html, body { margin: 0; background: var(--ink-950); }
+body {
+  font-family: var(--font-body);
+  color: var(--text);
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+a { text-decoration: none; color: inherit; }
+::selection { background: rgba(232,179,23,0.35); color: #fff; }
+
+#root { --lgi: 8; --mo: 1; }
+
+/* ---------- Accent = copper override ---------- */
+.accent-copper {
+  --brand-gold: var(--brand-copper-lite);
+  --brand-gold-bright: #EDB877;
+  --brand-gold-deep: var(--brand-copper);
+  --accent: var(--brand-copper-lite);
+  --accent-hover: #EDB877;
+  --accent-soft: rgba(217,148,74,0.12);
+  --accent-soft-2: rgba(217,148,74,0.20);
+  --border: rgba(217,148,74,0.16);
+  --border-strong: rgba(217,148,74,0.36);
+  --ring: rgba(217,148,74,0.55);
+  --grad-gold: linear-gradient(135deg, #EDB877 0%, var(--brand-copper-lite) 45%, var(--brand-copper) 100%);
+  --grad-gold-text: linear-gradient(100deg, #EDB877, var(--brand-copper-lite) 60%, var(--brand-copper));
+  --glow-gold: 0 0 44px rgba(217,148,74,0.38);
+  --glow-gold-sm: 0 0 20px rgba(217,148,74,0.28);
+  --grad-halo: radial-gradient(60% 60% at 50% 0%, rgba(217,148,74,0.20) 0%, rgba(217,148,74,0) 70%);
+}
+
+/* ---------- LIQUID GLASS ---------- */
+.lg {
+  position: relative;
+  isolation: isolate;
+  background:
+    linear-gradient(135deg,
+      rgba(255,255,255, calc(0.011 * var(--lgi))) 0%,
+      rgba(255,255,255, calc(0.004 * var(--lgi))) 40%,
+      rgba(255,255,255, 0.0) 100%),
+    rgba(22,20,18, calc(0.72 - 0.045 * var(--lgi)));
+  -webkit-backdrop-filter: blur(calc(var(--lgi) * 5px)) saturate(150%) brightness(1.08);
+  backdrop-filter: blur(calc(var(--lgi) * 5px)) saturate(150%) brightness(1.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  border-radius: var(--radius-xl, 28px);
+  box-shadow:
+    0 24px 70px -24px rgba(0,0,0,0.75),
+    inset 0 1px 0 rgba(255,255,255,0.22),
+    inset 0 -1px 0 rgba(0,0,0,0.4);
+  overflow: hidden;
+}
+/* diagonal specular sheen */
+.lg::before {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  background: linear-gradient(115deg,
+    rgba(255,255,255,0.16) 0%,
+    rgba(255,255,255,0.05) 22%,
+    rgba(255,255,255,0) 38%,
+    rgba(255,255,255,0) 68%,
+    rgba(255,255,255,0.06) 100%);
+  opacity: calc(0.06 * var(--lgi) + 0.2);
+  pointer-events: none;
+}
+/* refraction rim — brighter curved edge, like thick glass */
+.lg::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 0 1px rgba(255,255,255,0.05),
+    inset 2px 2px 12px -6px rgba(255,255,255,0.5),
+    inset -6px -8px 24px -18px rgba(255,255,255,0.35);
+}
+.lg > * { position: relative; z-index: 1; }
+
+.lg-gold { border-color: var(--glass-border-gold); }
+
+/* clear glass — no frost, just tint + specular */
+.lg-clear {
+  -webkit-backdrop-filter: saturate(150%) brightness(1.08);
+  backdrop-filter: saturate(150%) brightness(1.08);
+  background:
+    linear-gradient(160deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.0) 100%),
+    rgba(22,20,18, 0.32);
+}
+.lg-gold::before {
+  background: linear-gradient(115deg,
+    rgba(247,214,74,0.18) 0%,
+    rgba(247,214,74,0.05) 24%,
+    rgba(255,255,255,0) 40%,
+    rgba(255,255,255,0) 70%,
+    rgba(247,214,74,0.07) 100%);
+}
+
+/* moving specular streak (hero card, product cards) */
+.lg-live::before {
+  background-size: 260% 100%;
+  animation: lg-sweep calc(9s / max(var(--mo), 0.001)) var(--ease-inout) infinite;
+}
+@keyframes lg-sweep {
+  0%   { background-position: 120% 0; }
+  55%  { background-position: -60% 0; }
+  100% { background-position: -60% 0; }
+}
+
+/* ---------- HERO ---------- */
+.hero-orb {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  will-change: transform;
+}
+.hero-orb-float { animation: orb-float calc(11s / max(var(--mo), 0.001)) ease-in-out infinite alternate; }
+@keyframes orb-float {
+  from { transform: translate3d(0, -14px, 0); }
+  to   { transform: translate3d(0, 18px, 0); }
+}
+
+/* headline letter reveal */
+.hl-line { display: block; overflow: hidden; }
+.hl-word { display: inline-block; white-space: pre; }
+.hl-in .hl-word {
+  transform: translateY(110%) rotate(4deg);
+  animation: hl-rise calc(0.9s / max(var(--mo), 0.001)) var(--ease-out) forwards;
+  animation-delay: var(--d, 0s);
+}
+@keyframes hl-rise {
+  to { transform: translateY(0) rotate(0deg); }
+}
+
+/* headline phrase — word cascade: rise, un-blur, settle */
+.pw {
+  display: inline-block; white-space: pre;
+  animation: pw-in calc(0.72s / max(var(--mo), 0.001)) cubic-bezier(0.2, 1.4, 0.3, 1) both;
+  animation-delay: var(--d);
+  will-change: transform, filter, opacity;
+}
+@keyframes pw-in {
+  0%   { opacity: 0; transform: translateY(0.55em) rotate(4deg) scale(0.85); filter: blur(10px); }
+  55%  { opacity: 1; filter: blur(0); }
+  100% { opacity: 1; transform: none; filter: none; }
+}
+[data-motion="off"] .pw { animation: none; }
+
+/* copper extruded text */
+.copper-3d {
+  font-family: var(--font-display);
+  color: #E8A75D;
+  background: linear-gradient(180deg, #F2C083 0%, #D9944A 42%, #A55F27 78%, #8A4B1E 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter:
+    drop-shadow(0 1px 0 #6B3A18)
+    drop-shadow(0 2px 0 #5A2F12)
+    drop-shadow(0 3px 0 #47250E)
+    drop-shadow(0 10px 18px rgba(0,0,0,0.55));
+}
+
+/* scroll hint */
+.scroll-hint { animation: hint-bob calc(1.8s / max(var(--mo), 0.001)) ease-in-out infinite; }
+@keyframes hint-bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(8px); } }
+
+/* ---------- REVEAL ON SCROLL ---------- */
+.rv { opacity: 0; transform: translateY(34px); }
+.rv.rv-on {
+  opacity: 1; transform: translateY(0);
+  transition:
+    opacity calc(0.8s / max(var(--mo), 0.001)) var(--ease-out),
+    transform calc(0.8s / max(var(--mo), 0.001)) var(--ease-out);
+  transition-delay: var(--d, 0s);
+}
+
+/* ---------- MARQUEE (compliance strip) ---------- */
+.marq { overflow: hidden; -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent); }
+.marq-track {
+  display: flex; width: max-content; gap: 0;
+  animation: marq-x calc(36s / max(var(--mo), 0.001)) linear infinite;
+}
+.marq:hover .marq-track { animation-play-state: paused; }
+@keyframes marq-x { to { transform: translateX(-50%); } }
+
+/* ---------- NAV / BUTTON POLISH ---------- */
+.navlink { position: relative; transition: color var(--dur-base) var(--ease-out); }
+.navlink::after {
+  content: ''; position: absolute; left: 0; right: 100%; bottom: -5px; height: 1.5px;
+  background: var(--accent); transition: right calc(var(--dur-base)) var(--ease-out);
+}
+.navlink:hover { color: var(--text-strong); }
+.navlink:hover::after { right: 0; }
+
+.pcard { transition: transform 0.15s linear, box-shadow var(--dur-base) var(--ease-out); }
+
+/* ---------- MODAL ---------- */
+.modal-veil { animation: veil-in calc(0.35s / max(var(--mo), 0.001)) var(--ease-out) both; }
+.modal-card { animation: modal-in calc(0.5s / max(var(--mo), 0.001)) var(--ease-spring) both; }
+@keyframes veil-in { from { opacity: 0; } to { opacity: 1; } }
+@keyframes modal-in { from { opacity: 0; transform: translateY(28px) scale(0.96); } to { opacity: 1; transform: translateY(0) scale(1); } }
+
+/* ---------- MOTION OFF ---------- */
+[data-motion="off"] *, [data-motion="off"] *::before, [data-motion="off"] *::after {
+  animation: none !important;
+  transition-duration: 0.001ms !important;
+}
+[data-motion="off"] .rv { opacity: 1; transform: none; }
+[data-motion="off"] .hl-in .hl-word { transform: none; }
+@media (prefers-reduced-motion: reduce) {
+  .rv { opacity: 1; transform: none; }
+  .hl-in .hl-word { transform: none; animation: none; }
+  .pw { animation: none; }
+  .marq-track { animation: none; }
+}
+
+/* ---------- RESPONSIVE ---------- */
+.award-wrap { max-width: 1240px; margin: 0 auto; padding: 0 var(--gutter); }
+@media (max-width: 860px) {
+  .nav-links-desk { display: none !important; }
+  .hero-statbar { grid-template-columns: 1fr 1fr !important; }
+  .why-grid2 { grid-template-columns: 1fr !important; }
+  .process-grid4 { grid-template-columns: 1fr 1fr !important; }
+  .stats-grid { grid-template-columns: 1fr !important; }
+  .contact-grid2 { grid-template-columns: 1fr !important; }
+  .foot-grid { flex-direction: column; align-items: flex-start !important; }
+}
+@media (max-width: 560px) {
+  .process-grid4 { grid-template-columns: 1fr !important; }
+  .hero-statbar { grid-template-columns: 1fr !important; }
+}

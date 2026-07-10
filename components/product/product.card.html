@@ -1,0 +1,49 @@
+<!-- @dsCard group="Components" viewport="700x460" name="Product & Feature Cards" subtitle="ProductCard, StatBlock & FeatureItem" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<link rel="stylesheet" href="../../styles.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
+<style>
+  html, body { margin: 0; }
+  body { background: var(--bg); background-image: var(--grad-halo); color: var(--text); font-family: var(--font-body); padding: 28px; }
+  .cols { display: grid; grid-template-columns: 1.1fr 1fr; gap: 20px; align-items: start; }
+  .stats { display: flex; gap: 26px; padding: 22px 24px; border-radius: var(--radius-md); background: var(--glass-bg-2); border: 1px solid var(--glass-border); margin-bottom: 20px; }
+</style>
+</head>
+<body>
+<div id="root"></div>
+<script type="text/babel">
+  const { ProductCard, StatBlock, FeatureItem } = window.LaiveAIDesignSystem_fa5676;
+  function Demo() {
+    return (
+      <div>
+        <div className="stats">
+          <StatBlock value="60" suffix="%" label="ROI realized" sub="Up to 50–60% return." />
+          <StatBlock value="24/7" tone="copper" label="Always-on agents" />
+          <StatBlock value="3" tone="plain" label="AI products" />
+        </div>
+        <div className="cols">
+          <ProductCard index="01" icon="bot" title="Laive Engage"
+            description="AI agents that engage prospects, qualify leads, and drive conversions — around the clock."
+            capabilities={['Lead qualification & routing','Inbound & outbound engagement','Appointment scheduling']}
+            outcomes={['Faster sales cycles','Higher conversion']} featured />
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 14 }}>
+            <FeatureItem icon="target" index="01." title="Outcome-driven, not tool-driven"
+              description="We start with your business goals, then design the right AI workflows." />
+            <FeatureItem icon="shield-check" index="02." title="Risk-managed deployment"
+              description="We handle architecture, security, and integration." />
+          </div>
+        </div>
+      </div>
+    );
+  }
+  ReactDOM.createRoot(document.getElementById('root')).render(<Demo />);
+</script>
+</body>
+</html>

@@ -1,0 +1,10 @@
+/* ============================================================
+   LAIVE AI — WEBFONTS
+   Loaded from Google Fonts CDN.
+   Michroma is used as the display / wordmark face (a SUBSTITUTE
+   approximation of the LAIVE AI custom wordmark — see readme).
+   If you have the original wordmark font files, drop them in
+   assets/fonts/ and replace these @import rules with @font-face.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Michroma&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap');

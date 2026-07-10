@@ -1,0 +1,46 @@
+/* ============================================================
+   LAIVE AI — SPACING, RADII, LAYOUT TOKENS
+   4px base grid.
+   ============================================================ */
+
+:root {
+  --space-0:  0;
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-5:  20px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-14: 56px;
+  --space-16: 64px;
+  --space-20: 80px;
+  --space-24: 96px;
+  --space-32: 128px;
+  --space-40: 160px;
+
+  /* ---- Radii (generous, soft — with an angular hex option) ---- */
+  --radius-xs:   6px;
+  --radius-sm:   10px;
+  --radius-md:   14px;
+  --radius-lg:   20px;
+  --radius-xl:   28px;
+  --radius-2xl:  38px;
+  --radius-full: 999px;
+
+  /* ---- Container widths ---- */
+  --container-sm:  640px;
+  --container-md:  820px;
+  --container-lg:  1080px;
+  --container-xl:  1240px;
+  --container-2xl: 1440px;
+  --gutter:        clamp(20px, 5vw, 64px); /* @kind spacing */
+
+  /* ---- Section rhythm ---- */
+  --section-y:     clamp(64px, 9vw, 140px); /* @kind spacing */
+
+  /* ---- Hex clip-path (brand motif) ---- */
+  --hex-clip: polygon(50% 0%, 100% 22%, 100% 78%, 50% 100%, 0% 78%, 0% 22%); /* @kind other */
+}

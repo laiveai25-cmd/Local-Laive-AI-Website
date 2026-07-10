@@ -1,0 +1,16 @@
+<!-- @dsCard group="Brand" viewport="700x180" name="Elevation & Glow" subtitle="Dark shadows + gold/copper glow" -->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-body);padding:30px;display:flex;gap:22px;align-items:center}
+  .b{flex:1;height:88px;border-radius:var(--radius-md);background:var(--surface);border:1px solid var(--border-soft);display:flex;align-items:center;justify-content:center;font-family:var(--font-mono);font-size:10px;color:var(--text-muted)}
+</style></head>
+<body>
+  <div class="b" style="box-shadow:var(--shadow-sm)">shadow-sm</div>
+  <div class="b" style="box-shadow:var(--shadow-md)">shadow-md</div>
+  <div class="b" style="box-shadow:var(--shadow-lg)">shadow-lg</div>
+  <div class="b" style="box-shadow:var(--glow-gold);border-color:var(--border-strong)">glow-gold</div>
+  <div class="b" style="box-shadow:var(--glow-copper);border-color:rgba(176,106,46,.4)">glow-copper</div>
+</body></html>

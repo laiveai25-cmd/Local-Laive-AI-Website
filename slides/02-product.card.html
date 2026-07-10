@@ -1,0 +1,54 @@
+<!-- @dsCard group="Slides" viewport="1280x720" name="Product Slide" subtitle="Product — capabilities & outcome" -->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0}
+  .slide{width:1280px;height:720px;position:relative;overflow:hidden;background:var(--ink-900);color:var(--text);font-family:var(--font-body);box-sizing:border-box;padding:70px 90px}
+  .halo{position:absolute;inset:0;background:radial-gradient(70% 60% at 15% 0%,rgba(232,179,23,.18),transparent 60%)}
+  .in{position:relative;height:100%;display:flex;flex-direction:column}
+  .top{display:flex;align-items:center;gap:22px}
+  .badge{width:78px;height:88px;clip-path:var(--hex-clip);background:var(--grad-gold);display:grid;place-items:center;color:var(--text-on-gold);box-shadow:var(--glow-gold)}
+  .lic{width:40px;height:40px;background:var(--text-on-gold);-webkit-mask:url(https://unpkg.com/lucide-static@0.460.0/icons/bot.svg) center/contain no-repeat;mask:url(https://unpkg.com/lucide-static@0.460.0/icons/bot.svg) center/contain no-repeat}
+  .eye{font-family:var(--font-display);font-size:14px;letter-spacing:.22em;color:var(--accent)}
+  h1{font-family:var(--font-heading);font-weight:800;font-size:52px;letter-spacing:-.02em;color:var(--text-strong);margin:2px 0 0}
+  .lead{font-size:23px;color:var(--text-muted);line-height:1.5;max-width:900px;margin:30px 0 34px}
+  .cols{display:grid;grid-template-columns:1.3fr 1fr;gap:30px;flex:1}
+  .k{font-family:var(--font-display);font-size:13px;letter-spacing:.2em;color:var(--text-subtle);margin-bottom:16px}
+  ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:16px}
+  li{display:flex;gap:14px;font-size:21px;color:var(--text)}
+  .chk{color:var(--accent)}
+  .out{background:var(--glass-bg-gold);border:1px solid var(--glass-border-gold);border-radius:20px;padding:28px;display:flex;flex-direction:column;gap:14px;box-shadow:var(--glass-shadow-gold)}
+  .otag{display:flex;align-items:center;gap:10px;font-family:var(--font-heading);font-weight:600;font-size:20px;color:var(--accent-hover)}
+  .num{position:absolute;top:60px;right:90px;font-family:var(--font-display);font-size:120px;color:var(--accent-soft-2);line-height:1}
+</style></head>
+<body>
+<div class="slide">
+  <div class="halo"></div>
+  <span class="num">01</span>
+  <div class="in">
+    <div class="top">
+      <div class="badge"><span class="lic"></span></div>
+      <div><div class="eye">OUR AI PRODUCT · 01</div><h1>Laive Engage</h1></div>
+    </div>
+    <p class="lead">AI sales agents that engage prospects, qualify leads, and drive conversions — around the clock.</p>
+    <div class="cols">
+      <div>
+        <div class="k">KEY CAPABILITIES</div>
+        <ul>
+          <li><span class="chk">✓</span>Lead qualification &amp; routing</li>
+          <li><span class="chk">✓</span>Inbound &amp; outbound engagement</li>
+          <li><span class="chk">✓</span>Appointment scheduling</li>
+          <li><span class="chk">✓</span>CRM updates &amp; sales insights</li>
+        </ul>
+      </div>
+      <div class="out">
+        <div class="k" style="margin:0;color:var(--accent)">OUTCOME</div>
+        <div class="otag">↗ Faster sales cycles</div>
+        <div class="otag">↗ Higher conversion rates</div>
+        <div class="otag">↗ Consistent pipeline growth</div>
+      </div>
+    </div>
+  </div>
+</div>
+</body></html>

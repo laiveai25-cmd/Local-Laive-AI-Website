@@ -1,0 +1,36 @@
+<!-- @dsCard group="Slides" viewport="1280x720" name="Contact Slide" subtitle="Closing — CTA & contact details" -->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0}
+  .slide{width:1280px;height:720px;position:relative;overflow:hidden;background:var(--ink-900);color:var(--text);font-family:var(--font-body);box-sizing:border-box;padding:90px;display:flex;flex-direction:column;justify-content:center}
+  .halo{position:absolute;inset:0;background:radial-gradient(70% 80% at 85% 30%,rgba(232,179,23,.2),transparent 60%)}
+  .dots{position:absolute;inset:0;opacity:.5}
+  .in{position:relative;max-width:900px}
+  .eye{font-family:var(--font-display);font-size:15px;letter-spacing:.22em;color:var(--accent)}
+  h1{font-family:var(--font-heading);font-weight:800;font-size:62px;letter-spacing:-.02em;color:var(--text-strong);margin:16px 0;line-height:1.05}
+  h1 em{font-style:normal}
+  .grid{display:flex;gap:16px;flex-wrap:wrap;margin-top:36px}
+  .item{display:flex;align-items:center;gap:12px;padding:16px 22px;border-radius:14px;background:var(--glass-bg-2);border:1px solid var(--glass-border);font-size:19px}
+  .ic{width:22px;height:22px;background:var(--accent);-webkit-mask-size:contain;mask-size:contain;-webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;-webkit-mask-position:center;mask-position:center}
+  .cta{position:absolute;top:90px;right:0;display:flex;align-items:center;gap:14px}
+  .foot{position:absolute;bottom:44px;left:90px;font-family:var(--font-display);letter-spacing:.08em;color:var(--text-muted);font-size:16px}
+</style></head>
+<body>
+<div class="slide">
+  <div class="halo"></div><div class="dots bg-dots"></div>
+  <div class="cta"><img src="../assets/mark-gold.png" alt="Laive AI" style="height:70px" /></div>
+  <div class="in">
+    <div class="eye">CONTACT US FOR A QUICK DEMO</div>
+    <h1>It's 2026. AI adoption is <span class="text-gradient-gold">no longer optional.</span></h1>
+    <div class="grid">
+      <div class="item"><span class="ic" style="-webkit-mask-image:url(https://unpkg.com/lucide-static@0.460.0/icons/phone.svg);mask-image:url(https://unpkg.com/lucide-static@0.460.0/icons/phone.svg)"></span>+234 903 877 0939</div>
+      <div class="item"><span class="ic" style="-webkit-mask-image:url(https://unpkg.com/lucide-static@0.460.0/icons/mail.svg);mask-image:url(https://unpkg.com/lucide-static@0.460.0/icons/mail.svg)"></span>hassan@laiveai.com</div>
+      <div class="item"><span class="ic" style="-webkit-mask-image:url(https://unpkg.com/lucide-static@0.460.0/icons/globe.svg);mask-image:url(https://unpkg.com/lucide-static@0.460.0/icons/globe.svg)"></span>laiveai.com</div>
+      <div class="item"><span class="ic" style="-webkit-mask-image:url(https://unpkg.com/lucide-static@0.460.0/icons/map-pin.svg);mask-image:url(https://unpkg.com/lucide-static@0.460.0/icons/map-pin.svg)"></span>6a Surame Rd, Kaduna, Nigeria</div>
+    </div>
+  </div>
+  <div class="foot">Built to help you lead — powered by data, driven by AI.</div>
+</div>
+</body></html>

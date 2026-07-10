@@ -1,0 +1,20 @@
+<!-- @dsCard group="Spacing" viewport="700x160" name="Radii & Hex Motif" subtitle="Corner radii + the hexagonal brand shape" -->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-body);padding:24px;display:flex;align-items:center;gap:16px}
+  .b{width:78px;height:78px;background:var(--glass-bg-2);border:1px solid var(--border-strong);display:flex;align-items:flex-end;justify-content:center;padding-bottom:6px}
+  .k{font-family:var(--font-mono);font-size:9.5px;color:var(--text-muted)}
+  .hex{width:82px;height:90px;background:var(--grad-gold);clip-path:var(--hex-clip);display:grid;place-items:center;color:#17130a;font-family:var(--font-mono);font-size:10px;box-shadow:var(--glow-gold-sm)}
+</style></head>
+<body>
+  <div class="b" style="border-radius:var(--radius-sm)"><span class="k">sm·10</span></div>
+  <div class="b" style="border-radius:var(--radius-md)"><span class="k">md·14</span></div>
+  <div class="b" style="border-radius:var(--radius-lg)"><span class="k">lg·20</span></div>
+  <div class="b" style="border-radius:var(--radius-xl)"><span class="k">xl·28</span></div>
+  <div class="b" style="border-radius:var(--radius-full)"><span class="k">full</span></div>
+  <div style="flex:1"></div>
+  <div class="hex">hex-clip</div>
+</body></html>

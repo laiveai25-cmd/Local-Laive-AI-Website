@@ -1,0 +1,17 @@
+<!-- @dsCard group="Brand" viewport="700x200" name="Glass Surfaces" subtitle="The pronounced frosted-glass system" -->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);background-image:radial-gradient(120% 90% at 20% 0%,rgba(232,179,23,.28),transparent 55%),radial-gradient(90% 80% at 90% 100%,rgba(176,106,46,.35),transparent 60%);color:var(--text);font-family:var(--font-body);padding:26px;display:flex;gap:18px}
+  .card{flex:1;padding:22px;border-radius:var(--radius-lg);position:relative;overflow:hidden}
+  .card::before{content:"";position:absolute;inset:0;background:linear-gradient(135deg,rgba(255,255,255,.16),rgba(255,255,255,0) 42%);pointer-events:none}
+  .t{font-family:var(--font-heading);font-weight:700;font-size:16px;position:relative}
+  .s{font-family:var(--font-mono);font-size:10px;color:var(--text-muted);position:relative;margin-top:6px}
+</style></head>
+<body>
+  <div class="card glass"><div class="t">.glass</div><div class="s">neutral · blur 22px</div></div>
+  <div class="card glass-light"><div class="t">.glass-light</div><div class="s">bright film · white 5.5%</div></div>
+  <div class="card glass-gold"><div class="t">.glass-gold</div><div class="s">gold-tinted · blur 40px</div></div>
+</body></html>

@@ -1,0 +1,15 @@
+<!-- @dsCard group="Colors" viewport="700x150" name="Gradients & Glow" subtitle="Gold, copper, ink gradients + gold glow" -->
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="UTF-8" /><link rel="stylesheet" href="../styles.css" />
+<style>
+  html,body{margin:0}
+  body{background:var(--bg);color:var(--text);font-family:var(--font-body);padding:20px;display:flex;gap:14px;align-items:center}
+  .g{flex:1;height:100px;border-radius:var(--radius-md);display:flex;align-items:flex-end;padding:10px;font-family:var(--font-mono);font-size:10px}
+</style></head>
+<body>
+  <div class="g" style="background:var(--grad-gold);color:#17130a">grad-gold</div>
+  <div class="g" style="background:var(--grad-copper);color:#1b0f07">grad-copper</div>
+  <div class="g" style="background:var(--grad-ink);color:#fff;border:1px solid var(--border)">grad-ink</div>
+  <div class="g" style="background:var(--brand-gold);color:#17130a;box-shadow:var(--glow-gold)">glow-gold</div>
+</body></html>

@@ -1,0 +1,456 @@
+<!-- @dsCard group="Brand" viewport="1280x900" name="Design Language" subtitle="Laive AI Design Language v1.0 — the living reference for the flagship visual system" -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Laive AI — Design Language v1.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Michroma&family=Sora:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&display=swap" />
+<link rel="stylesheet" href="../styles.css" />
+<style>
+  /* ---- fallbacks so the page is legible even if ../styles.css can't load ---- */
+  :root {
+    --dl-gold: var(--brand-gold, #E8B317);
+    --dl-gold-bright: var(--brand-gold-bright, #F7D64A);
+    --dl-ink: var(--ink-950, #070605);
+    --dl-ink-900: var(--ink-900, #0C0B0A);
+    --dl-ink-850: var(--ink-850, #131110);
+    --dl-ink-800: var(--ink-800, #1A1816);
+    --dl-text: var(--text, #F3EEE4);
+    --dl-muted: var(--text-muted, #A69E90);
+    --dl-subtle: var(--text-subtle, #7B7468);
+    --dl-hex: var(--hex-clip, polygon(50% 0%, 100% 22%, 100% 78%, 50% 100%, 0% 78%, 0% 22%));
+    --dl-fdisplay: var(--font-display, 'Michroma', sans-serif);
+    --dl-fhead: var(--font-heading, 'Sora', sans-serif);
+    --dl-fbody: var(--font-body, 'Sora', sans-serif);
+    --dl-fmono: var(--font-mono, 'Space Mono', monospace);
+    --dl-ease: var(--ease-out, cubic-bezier(0.22, 1, 0.36, 1));
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0; background: var(--dl-ink); color: var(--dl-text);
+    font-family: var(--dl-fbody); -webkit-font-smoothing: antialiased;
+    background-image:
+      radial-gradient(70% 50% at 78% -6%, rgba(232,179,23,0.10), transparent 60%),
+      radial-gradient(50% 40% at 8% 108%, rgba(217,148,74,0.08), transparent 60%);
+  }
+  ::selection { background: rgba(232,179,23,0.34); color: #fff; }
+  a { color: inherit; }
+  .dl-shell { display: grid; grid-template-columns: 262px 1fr; align-items: start; max-width: 1340px; margin: 0 auto; }
+
+  /* ---- side rail ---- */
+  .dl-rail { position: sticky; top: 0; height: 100vh; padding: 40px 26px; display: flex; flex-direction: column; gap: 26px; border-right: 1px solid rgba(255,255,255,0.07); }
+  .dl-brand { display: flex; align-items: center; gap: 12px; }
+  .dl-brand .hex { width: 34px; height: 38px; clip-path: var(--dl-hex); background: linear-gradient(160deg, var(--dl-gold-bright), var(--dl-gold)); display: grid; place-items: center; color: #17130A; font-family: var(--dl-fdisplay); font-size: 14px; }
+  .dl-brand b { font-family: var(--dl-fdisplay); font-size: 13px; letter-spacing: 0.08em; }
+  .dl-nav { display: flex; flex-direction: column; gap: 2px; }
+  .dl-nav a {
+    display: flex; align-items: center; gap: 11px; text-decoration: none; color: var(--dl-subtle);
+    font-size: 13.5px; padding: 9px 12px; border-radius: 10px; transition: all 0.2s var(--dl-ease);
+  }
+  .dl-nav a .n { font-family: var(--dl-fmono); font-size: 10.5px; color: var(--dl-subtle); opacity: 0.7; }
+  .dl-nav a:hover { color: var(--dl-text); background: rgba(255,255,255,0.04); }
+  .dl-nav a.on { color: var(--dl-gold); background: rgba(232,179,23,0.09); }
+  .dl-nav a.on .n { color: var(--dl-gold); opacity: 1; }
+  .dl-rail-foot { margin-top: auto; font-family: var(--dl-fmono); font-size: 10px; letter-spacing: 0.14em; color: var(--dl-subtle); line-height: 2; }
+
+  /* ---- content ---- */
+  .dl-main { padding: 0 clamp(24px, 5vw, 76px) 140px; min-width: 0; }
+  section[id] { scroll-margin-top: 40px; padding: clamp(56px, 8vw, 104px) 0 0; }
+  .dl-eyebrow { font-family: var(--dl-fdisplay); font-size: 11.5px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dl-gold); display: inline-flex; align-items: center; gap: 10px; }
+  .dl-eyebrow::before { content: ''; width: 9px; height: 10px; clip-path: var(--dl-hex); background: var(--dl-gold); }
+  .dl-h2 { font-family: var(--dl-fhead); font-weight: 800; font-size: clamp(28px, 3.6vw, 44px); letter-spacing: -0.025em; line-height: 1.08; margin: 16px 0 0; }
+  .dl-lead { font-size: clamp(15px, 1.5vw, 17px); line-height: 1.7; color: var(--dl-muted); max-width: 660px; margin: 16px 0 0; }
+  .dl-grad { background: linear-gradient(100deg, var(--dl-gold-bright), var(--dl-gold) 55%, var(--brand-copper-lite, #D9944A)); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; color: transparent; }
+
+  /* masthead */
+  .dl-cover { padding: clamp(70px, 12vh, 150px) 0 20px; }
+  .dl-cover h1 { font-family: var(--dl-fdisplay); font-weight: 400; text-transform: uppercase; font-size: clamp(38px, 7vw, 92px); line-height: 1.02; letter-spacing: 0.005em; margin: 22px 0 0; }
+  .dl-cover .stroke { color: transparent; -webkit-text-stroke: 1.3px rgba(232,179,23,0.55); }
+  .dl-metarow { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
+  .dl-chip { display: inline-flex; align-items: center; gap: 9px; font-family: var(--dl-fmono); font-size: 11.5px; letter-spacing: 0.08em; color: var(--dl-muted); padding: 9px 15px; border-radius: 99px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.03); }
+  .dl-chip b { color: var(--dl-gold); font-weight: 400; }
+
+  /* glass card */
+  .glassx { position: relative; border-radius: 22px; border: 1px solid rgba(255,255,255,0.13); background: linear-gradient(160deg, rgba(255,255,255,0.06), rgba(255,255,255,0.01) 40%, rgba(20,18,16,0.5)); -webkit-backdrop-filter: blur(20px) saturate(140%); backdrop-filter: blur(20px) saturate(140%); box-shadow: 0 22px 60px -30px rgba(0,0,0,0.8), inset 0 1px 0 rgba(255,255,255,0.2); overflow: hidden; }
+  .glassx::before { content: ''; position: absolute; inset: 0; background: linear-gradient(125deg, rgba(255,255,255,0.16), transparent 42%); pointer-events: none; }
+  .glassx > * { position: relative; }
+
+  .grid { display: grid; gap: 16px; }
+  .g2 { grid-template-columns: 1fr 1fr; }
+  .g3 { grid-template-columns: repeat(3, 1fr); }
+  .g4 { grid-template-columns: repeat(4, 1fr); }
+
+  .prin { padding: 26px; display: flex; flex-direction: column; gap: 12px; min-height: 172px; }
+  .prin .ic { width: 46px; height: 51px; clip-path: var(--dl-hex); background: rgba(232,179,23,0.16); border: 1px solid rgba(232,179,23,0.34); display: grid; place-items: center; color: var(--dl-gold); }
+  .prin h3 { margin: 4px 0 0; font-family: var(--dl-fhead); font-weight: 700; font-size: 18px; letter-spacing: -0.01em; }
+  .prin p { margin: 0; font-size: 14px; line-height: 1.6; color: var(--dl-muted); }
+  .prin .no { margin-left: auto; font-family: var(--dl-fmono); font-size: 12px; color: var(--dl-subtle); }
+  .prin .top { display: flex; align-items: center; gap: 12px; }
+
+  /* swatches */
+  .swatch { border-radius: 16px; overflow: hidden; border: 1px solid rgba(255,255,255,0.09); cursor: pointer; transition: transform 0.2s var(--dl-ease); }
+  .swatch:hover { transform: translateY(-3px); }
+  .swatch .fill { height: 78px; }
+  .swatch .meta { padding: 11px 13px; background: rgba(255,255,255,0.02); display: flex; flex-direction: column; gap: 3px; }
+  .swatch .nm { font-size: 12.5px; font-weight: 600; }
+  .swatch .hx { font-family: var(--dl-fmono); font-size: 10.5px; color: var(--dl-subtle); text-transform: uppercase; }
+  .grad-row { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .grad-tile { border-radius: 16px; height: 96px; border: 1px solid rgba(255,255,255,0.1); display: flex; align-items: flex-end; padding: 12px; font-family: var(--dl-fmono); font-size: 10.5px; letter-spacing: 0.04em; color: #17130A; font-weight: 700; }
+
+  /* type specimen */
+  .spec { padding: 24px 26px; border-bottom: 1px solid rgba(255,255,255,0.07); display: flex; flex-direction: column; gap: 10px; }
+  .spec:last-child { border-bottom: none; }
+  .spec .tag { font-family: var(--dl-fmono); font-size: 10.5px; letter-spacing: 0.16em; color: var(--dl-subtle); text-transform: uppercase; }
+  .disp { font-family: var(--dl-fdisplay); font-weight: 400; text-transform: uppercase; font-size: clamp(30px, 5vw, 56px); line-height: 1.02; }
+  .head { font-family: var(--dl-fhead); font-weight: 800; font-size: 30px; letter-spacing: -0.02em; }
+  .bodyt { font-family: var(--dl-fbody); font-size: 17px; line-height: 1.65; color: var(--dl-muted); max-width: 620px; }
+  .monot { font-family: var(--dl-fmono); font-size: 14px; letter-spacing: 0.04em; color: var(--dl-gold); }
+
+  /* surface tiers */
+  .surf { border-radius: 18px; padding: 22px; min-height: 128px; display: flex; flex-direction: column; justify-content: space-between; border: 1px solid rgba(255,255,255,0.1); }
+  .surf .lbl { font-family: var(--dl-fmono); font-size: 11px; letter-spacing: 0.1em; color: var(--dl-muted); }
+  .surf .val { font-family: var(--dl-fmono); font-size: 10.5px; color: var(--dl-subtle); }
+
+  /* components demo */
+  .btn { display: inline-flex; align-items: center; gap: 9px; font-family: var(--dl-fbody); font-weight: 600; font-size: 14px; padding: 12px 20px; border-radius: 99px; cursor: pointer; border: none; text-decoration: none; }
+  .btn-primary { background: linear-gradient(135deg, var(--dl-gold-bright), var(--dl-gold) 45%, var(--brand-gold-deep, #B8860B)); color: #17130A; box-shadow: inset 0 1px 0 rgba(255,255,255,0.5), inset 0 -3px 0 rgba(120,86,6,0.9), 0 10px 24px -8px rgba(0,0,0,0.5), 0 0 30px -8px rgba(232,179,23,0.4); }
+  .btn-glass { background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.16); color: var(--dl-text); -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px); }
+  .btn-outline { background: transparent; border: 1px solid rgba(232,179,23,0.5); color: var(--dl-gold); }
+  .pill { display: inline-flex; align-items: center; gap: 8px; font-family: var(--dl-fmono); font-size: 11px; letter-spacing: 0.08em; padding: 7px 13px; border-radius: 99px; background: rgba(232,179,23,0.14); border: 1px solid rgba(232,179,23,0.3); color: var(--gold-100, #F7E9AE); }
+  .lbl-demo { font-family: var(--dl-fdisplay); font-size: 12px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--dl-gold); }
+
+  /* do/don't */
+  .dd { padding: 22px 24px; border-radius: 16px; display: flex; flex-direction: column; gap: 10px; }
+  .dd.do { background: rgba(79,180,119,0.07); border: 1px solid rgba(79,180,119,0.28); }
+  .dd.dont { background: rgba(229,83,61,0.06); border: 1px solid rgba(229,83,61,0.26); }
+  .dd .h { display: flex; align-items: center; gap: 9px; font-family: var(--dl-fmono); font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; }
+  .dd.do .h { color: var(--success, #4FB477); }
+  .dd.dont .h { color: var(--danger, #E5533D); }
+  .dd ul { margin: 0; padding-left: 18px; display: flex; flex-direction: column; gap: 7px; }
+  .dd li { font-size: 13.5px; line-height: 1.55; color: var(--dl-muted); }
+
+  .motion-row { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 20px; border-bottom: 1px solid rgba(255,255,255,0.07); }
+  .motion-row:last-child { border-bottom: none; }
+  .motion-row .k { font-family: var(--dl-fmono); font-size: 13px; color: var(--dl-gold); }
+  .motion-row .d { font-size: 13.5px; color: var(--dl-muted); }
+  .motion-row .v { font-family: var(--dl-fmono); font-size: 11.5px; color: var(--dl-subtle); white-space: nowrap; }
+
+  .dl-rule { height: 1px; border: 0; background: linear-gradient(90deg, transparent, rgba(232,179,23,0.4), transparent); margin: 0; }
+
+  .toast { position: fixed; bottom: 26px; left: 50%; transform: translateX(-50%) translateY(20px); background: linear-gradient(135deg, var(--dl-gold-bright), var(--dl-gold)); color: #17130A; font-family: var(--dl-fmono); font-size: 12px; letter-spacing: 0.06em; padding: 11px 20px; border-radius: 99px; opacity: 0; pointer-events: none; transition: all 0.3s var(--dl-ease); z-index: 100; box-shadow: 0 12px 30px -8px rgba(0,0,0,0.6); }
+  .toast.on { opacity: 1; transform: translateX(-50%) translateY(0); }
+
+  @media (max-width: 900px) {
+    .dl-shell { grid-template-columns: 1fr; }
+    .dl-rail { position: static; height: auto; flex-direction: row; align-items: center; overflow-x: auto; border-right: none; border-bottom: 1px solid rgba(255,255,255,0.07); padding: 16px 20px; }
+    .dl-nav { flex-direction: row; }
+    .dl-nav a .lbl { display: none; }
+    .dl-rail-foot, .dl-brand b { display: none; }
+    .g2, .g3, .g4, .grad-row { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 560px) { .g2, .g3, .g4, .grad-row { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+<div class="dl-shell">
+  <!-- ================= RAIL ================= -->
+  <aside class="dl-rail">
+    <div class="dl-brand"><span class="hex">L</span><b>LAIVE&nbsp;AI</b></div>
+    <nav class="dl-nav" id="dlNav">
+      <a href="#principles"><span class="n">01</span><span class="lbl">Principles</span></a>
+      <a href="#logo"><span class="n">02</span><span class="lbl">Logo &amp; mark</span></a>
+      <a href="#color"><span class="n">03</span><span class="lbl">Color</span></a>
+      <a href="#type"><span class="n">04</span><span class="lbl">Typography</span></a>
+      <a href="#motif"><span class="n">05</span><span class="lbl">Motif &amp; icons</span></a>
+      <a href="#surfaces"><span class="n">06</span><span class="lbl">Surfaces</span></a>
+      <a href="#motion"><span class="n">07</span><span class="lbl">Motion</span></a>
+      <a href="#components"><span class="n">08</span><span class="lbl">Components</span></a>
+      <a href="#voice"><span class="n">09</span><span class="lbl">Voice</span></a>
+      <a href="#space"><span class="n">10</span><span class="lbl">Space &amp; grid</span></a>
+      <a href="#dodont"><span class="n">11</span><span class="lbl">Do &amp; Don't</span></a>
+    </nav>
+    <div class="dl-rail-foot">DESIGN LANGUAGE<br />VERSION 1.0<br />UPDATED JUL 2026</div>
+  </aside>
+
+  <!-- ================= MAIN ================= -->
+  <main class="dl-main">
+    <!-- COVER -->
+    <header class="dl-cover">
+      <span class="dl-eyebrow">Laive AI — Design Language v1.0</span>
+      <h1>The&nbsp;Laive<br /><span class="dl-grad">Design</span> <span class="stroke">Language</span></h1>
+      <p class="dl-lead">The single source of truth for how Laive AI looks, moves, and speaks. A dark, gold-lit system built on liquid glass, tactile 3D depth, kinetic typography and restrained motion — engineered to feel as intelligent and decisive as the products it represents.</p>
+      <div class="dl-metarow">
+        <span class="dl-chip"><b>Theme</b> Gold-on-ink · dark-first</span>
+        <span class="dl-chip"><b>Display</b> Michroma</span>
+        <span class="dl-chip"><b>Text</b> Sora</span>
+        <span class="dl-chip"><b>Data</b> Space Mono</span>
+        <span class="dl-chip"><b>Signature</b> Liquid glass · hex motif</span>
+      </div>
+    </header>
+
+    <hr class="dl-rule" style="margin-top:60px" />
+
+    <!-- 01 PRINCIPLES -->
+    <section id="principles">
+      <span class="dl-eyebrow">01 — Principles</span>
+      <h2 class="dl-h2">Five ideas behind every decision</h2>
+      <p class="dl-lead">When a choice is unclear, these resolve it. They are ranked: earlier principles win ties.</p>
+      <div class="grid g2" style="margin-top:34px">
+        <div class="glassx prin"><div class="top"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span><span class="no">01</span></div><h3>Outcome over ornament</h3><p>Every element earns its place by advancing the visitor toward a decision. Beauty is a by-product of clarity, never a substitute for it.</p></div>
+        <div class="glassx prin"><div class="top"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg></span><span class="no">02</span></div><h3>Dark, with gold intent</h3><p>Near-black warm ink is the canvas; gold is spent like currency — on the one thing that matters per view. Scarcity is what makes it read as premium.</p></div>
+        <div class="glassx prin"><div class="top"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m6.08 9.5-3.48 1.6a1 1 0 0 0 0 1.81l8.6 3.91a2 2 0 0 0 1.65 0l8.58-3.9a1 1 0 0 0 0-1.83l-3.5-1.6"/></svg></span><span class="no">03</span></div><h3>Depth you can feel</h3><p>Glass, specular highlights and true 3D transforms give the interface material weight. Surfaces refract, lift toward the cursor, and cast honest shadows.</p></div>
+        <div class="glassx prin"><div class="top"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v16h16"/><path d="m5 19 6-6 4 4 6-8"/></svg></span><span class="no">04</span></div><h3>Kinetic, never restless</h3><p>Motion communicates — a reveal, a scrub, a magnetic pull. It responds to the visitor's input. It never loops for decoration and always yields to reduced-motion.</p></div>
+        <div class="glassx prin" style="grid-column:1 / -1"><div class="top"><span class="ic"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9.937 15.5A2 2 0 0 0 8.5 14.063l-6.135-1.582a.5.5 0 0 1 0-.962L8.5 9.936A2 2 0 0 0 9.937 8.5l1.582-6.135a.5.5 0 0 1 .962 0L14.063 8.5A2 2 0 0 0 15.5 9.937l6.135 1.581a.5.5 0 0 1 0 .964L15.5 14.063a2 2 0 0 0-1.437 1.437l-1.582 6.135a.5.5 0 0 1-.962 0z"/></svg></span><span class="no">05</span></div><h3>Precision &amp; warmth</h3><p>Monospaced data, tight geometric headlines and a 4px grid deliver engineering credibility — warmed by copper texture, soft ink and generous, humane spacing. Rigorous, not cold.</p></div>
+      </div>
+    </section>
+
+    <!-- 02 LOGO -->
+    <section id="logo">
+      <span class="dl-eyebrow">02 — Logo &amp; mark</span>
+      <h2 class="dl-h2">The mark</h2>
+      <p class="dl-lead">The hexagonal brain-mark is the brand's anchor. It appears in three finishes: flat gold for UI, textured 3D copper for hero moments, and outline for dense or small placements.</p>
+      <div class="grid g3" style="margin-top:34px">
+        <div class="glassx" style="padding:34px; display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center">
+          <img src="../assets/mark-gold.png" alt="Laive AI gold mark" style="width:96px; filter: drop-shadow(0 14px 30px rgba(232,179,23,0.28))" />
+          <div><div style="font-weight:600; font-size:14px">Gold — UI</div><div style="font-family:var(--dl-fmono); font-size:10.5px; color:var(--dl-subtle); margin-top:3px">NAV · FOOTER · CHROME</div></div>
+        </div>
+        <div class="glassx" style="padding:34px; display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center">
+          <img src="../assets/mark-3d-copper.png" alt="Laive AI textured 3D copper mark" style="width:96px; filter: drop-shadow(0 20px 34px rgba(0,0,0,0.6))" />
+          <div><div style="font-weight:600; font-size:14px">3D copper — hero</div><div style="font-family:var(--dl-fmono); font-size:10.5px; color:var(--dl-subtle); margin-top:3px">LANDING · CAMPAIGN</div></div>
+        </div>
+        <div class="glassx" style="padding:34px; display:flex; flex-direction:column; align-items:center; gap:18px; text-align:center; justify-content:center">
+          <div style="width:96px; height:106px; clip-path:var(--dl-hex); border:1.5px solid rgba(232,179,23,0.55); display:grid; place-items:center; color:var(--dl-gold); font-family:var(--dl-fdisplay); font-size:34px">L</div>
+          <div><div style="font-weight:600; font-size:14px">Outline — dense</div><div style="font-family:var(--dl-fmono); font-size:10.5px; color:var(--dl-subtle); margin-top:3px">FAVICON · WATERMARK</div></div>
+        </div>
+      </div>
+      <div class="grid g2" style="margin-top:16px">
+        <div class="dd do"><div class="h"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Clear space &amp; scale</div><ul><li>Keep clear space of at least half the mark's height on all sides.</li><li>Minimum size 24px (UI) / 16px (favicon outline).</li><li>Pair the wordmark in Michroma, tracked at 0.08em.</li></ul></div>
+        <div class="dd dont"><div class="h"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Never</div><ul><li>Recolor the mark outside gold / copper / outline.</li><li>Rotate, skew, or add drop shadows to the flat gold mark.</li><li>Place the 3D copper mark on busy or light backgrounds.</li></ul></div>
+      </div>
+    </section>
+
+    <!-- 03 COLOR -->
+    <section id="color">
+      <span class="dl-eyebrow">03 — Color</span>
+      <h2 class="dl-h2">A palette of ink &amp; gold</h2>
+      <p class="dl-lead">Warm near-blacks carry the system; a single gold family provides all accent energy; copper adds texture and dimension. Click any swatch to copy its token.</p>
+
+      <h3 style="font-family:var(--dl-fmono); font-size:12px; letter-spacing:0.16em; color:var(--dl-subtle); text-transform:uppercase; margin:34px 0 14px">Brand core</h3>
+      <div class="grid g4" data-swatches>
+        <div class="swatch" data-copy="--brand-gold"><div class="fill" style="background:#E8B317"></div><div class="meta"><span class="nm">Brand Gold</span><span class="hx">#E8B317 · --brand-gold</span></div></div>
+        <div class="swatch" data-copy="--brand-gold-bright"><div class="fill" style="background:#F7D64A"></div><div class="meta"><span class="nm">Gold Bright</span><span class="hx">#F7D64A</span></div></div>
+        <div class="swatch" data-copy="--brand-copper"><div class="fill" style="background:#B06A2E"></div><div class="meta"><span class="nm">Copper</span><span class="hx">#B06A2E</span></div></div>
+        <div class="swatch" data-copy="--brand-copper-lite"><div class="fill" style="background:#D9944A"></div><div class="meta"><span class="nm">Copper Lite</span><span class="hx">#D9944A</span></div></div>
+      </div>
+
+      <h3 style="font-family:var(--dl-fmono); font-size:12px; letter-spacing:0.16em; color:var(--dl-subtle); text-transform:uppercase; margin:26px 0 14px">Ink / warm neutrals</h3>
+      <div class="grid g4" data-swatches>
+        <div class="swatch" data-copy="--ink-950"><div class="fill" style="background:#070605"></div><div class="meta"><span class="nm">Ink 950 · bg</span><span class="hx">#070605</span></div></div>
+        <div class="swatch" data-copy="--ink-850"><div class="fill" style="background:#131110"></div><div class="meta"><span class="nm">Ink 850 · elevated</span><span class="hx">#131110</span></div></div>
+        <div class="swatch" data-copy="--ink-800"><div class="fill" style="background:#1A1816"></div><div class="meta"><span class="nm">Ink 800 · surface</span><span class="hx">#1A1816</span></div></div>
+        <div class="swatch" data-copy="--text"><div class="fill" style="background:#F3EEE4"></div><div class="meta"><span class="nm" style="color:#17130A">Text · warm white</span><span class="hx" style="color:#6b5c3a">#F3EEE4</span></div></div>
+      </div>
+
+      <h3 style="font-family:var(--dl-fmono); font-size:12px; letter-spacing:0.16em; color:var(--dl-subtle); text-transform:uppercase; margin:26px 0 14px">Semantic status</h3>
+      <div class="grid g4" data-swatches>
+        <div class="swatch" data-copy="--success"><div class="fill" style="background:#4FB477"></div><div class="meta"><span class="nm">Success</span><span class="hx">#4FB477</span></div></div>
+        <div class="swatch" data-copy="--warning"><div class="fill" style="background:#E8B317"></div><div class="meta"><span class="nm">Warning</span><span class="hx">#E8B317</span></div></div>
+        <div class="swatch" data-copy="--danger"><div class="fill" style="background:#E5533D"></div><div class="meta"><span class="nm">Danger</span><span class="hx">#E5533D</span></div></div>
+        <div class="swatch" data-copy="--info"><div class="fill" style="background:#4C8DD6"></div><div class="meta"><span class="nm">Info</span><span class="hx">#4C8DD6</span></div></div>
+      </div>
+
+      <h3 style="font-family:var(--dl-fmono); font-size:12px; letter-spacing:0.16em; color:var(--dl-subtle); text-transform:uppercase; margin:26px 0 14px">Signature gradients</h3>
+      <div class="grad-row">
+        <div class="grad-tile" style="background:linear-gradient(135deg,#F7D64A,#E8B317 45%,#B8860B)">GOLD</div>
+        <div class="grad-tile" style="background:linear-gradient(150deg,#D9944A,#B06A2E 48%,#6B3A18)">COPPER</div>
+        <div class="grad-tile" style="background:linear-gradient(100deg,#F7D64A,#E8B317 60%,#D9944A)">GOLD TEXT</div>
+        <div class="grad-tile" style="background:radial-gradient(120% 120% at 50% 0%, rgba(232,179,23,0.5), #070605 70%); color:#F7E9AE">HALO</div>
+      </div>
+    </section>
+
+    <!-- 04 TYPE -->
+    <section id="type">
+      <span class="dl-eyebrow">04 — Typography</span>
+      <h2 class="dl-h2">Three voices, one system</h2>
+      <p class="dl-lead">Michroma for wide, sci-fi display and the wordmark. Sora for headings and body — geometric, humanist, readable. Space Mono for data, labels and metadata.</p>
+      <div class="glassx" style="margin-top:34px">
+        <div class="spec"><span class="tag">Display · Michroma · uppercase · tracking 0.005em</span><div class="disp">More money. More time.</div></div>
+        <div class="spec"><span class="tag">Heading · Sora 800 · tracking −0.02em</span><div class="head">The right AI to help you dominate.</div></div>
+        <div class="spec"><span class="tag">Body · Sora 400 · 1.65 line-height</span><div class="bodyt">We design and deploy bespoke AI agents and automations that plug into your real operations. Outcome as a Service — nothing less.</div></div>
+        <div class="spec"><span class="tag">Mono / label · Space Mono · tracking 0.22em</span><div class="monot">OUTCOME AS A SERVICE — 10.51°N 7.42°E</div></div>
+      </div>
+      <div class="grid g4" style="margin-top:16px">
+        <div class="glassx" style="padding:20px"><div style="font-family:var(--dl-fmono); font-size:10.5px; color:var(--dl-subtle); letter-spacing:0.14em">SCALE</div><div style="font-size:14px; line-height:2.1; color:var(--dl-muted); margin-top:8px; font-family:var(--dl-fmono)">2xs 11 · xs 12 · sm 14<br/>base 16 · lg 18 · xl 20<br/>2xl 24 · 3xl 30 · 4xl 38<br/>5xl 48 · 6xl 64 · 7xl 84</div></div>
+        <div class="glassx" style="padding:20px"><div style="font-family:var(--dl-fmono); font-size:10.5px; color:var(--dl-subtle); letter-spacing:0.14em">WEIGHTS</div><div style="margin-top:8px; display:flex; flex-direction:column; gap:4px"><span style="font-weight:300">Sora 300 Light</span><span style="font-weight:400">Sora 400 Regular</span><span style="font-weight:600">Sora 600 Semibold</span><span style="font-weight:800">Sora 800 Extrabold</span></div></div>
+        <div class="glassx" style="padding:20px"><div style="font-family:var(--dl-fmono); font-size:10.5px; color:var(--dl-subtle); letter-spacing:0.14em">TRACKING</div><div style="margin-top:8px; display:flex; flex-direction:column; gap:6px; font-size:13.5px; color:var(--dl-muted)"><span style="letter-spacing:-0.03em">Tighter −0.03</span><span style="letter-spacing:-0.015em">Tight −0.015</span><span style="letter-spacing:0.12em">Wider 0.12</span><span style="letter-spacing:0.22em">Label 0.22</span></div></div>
+        <div class="glassx" style="padding:20px"><div style="font-family:var(--dl-fmono); font-size:10.5px; color:var(--dl-subtle); letter-spacing:0.14em">LINE HEIGHT</div><div style="margin-top:8px; display:flex; flex-direction:column; gap:4px; font-size:13.5px; color:var(--dl-muted)"><span>Tight 1.05 — display</span><span>Heading 1.12</span><span>Normal 1.5</span><span>Relaxed 1.65 — body</span></div></div>
+      </div>
+    </section>
+
+    <!-- 05 MOTIF -->
+    <section id="motif">
+      <span class="dl-eyebrow">05 — Motif &amp; iconography</span>
+      <h2 class="dl-h2">The hexagon, everywhere</h2>
+      <p class="dl-lead">The six-sided cell from the mark is the system's connective tissue — icon frames, bullets, step nodes, badges. Icons are monoline (1.75–2px), 24px grid, rounded joins, drawn in a single stroke weight.</p>
+      <div class="grid g2" style="margin-top:34px">
+        <div class="glassx" style="padding:30px; display:flex; align-items:center; justify-content:space-around; gap:18px; flex-wrap:wrap">
+          <span style="width:64px; height:71px; clip-path:var(--dl-hex); background:linear-gradient(160deg,#F7D64A,#E8B317); display:grid; place-items:center; color:#17130A"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 8V4H8"/><rect width="16" height="12" x="4" y="8" rx="2"/><path d="M2 14h2M20 14h2M15 13v2M9 13v2"/></svg></span>
+          <span style="width:64px; height:71px; clip-path:var(--dl-hex); background:rgba(232,179,23,0.16); border:1px solid rgba(232,179,23,0.34); display:grid; place-items:center; color:var(--dl-gold)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></span>
+          <span style="width:64px; height:71px; clip-path:var(--dl-hex); background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); display:grid; place-items:center; color:var(--dl-text)"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"/></svg></span>
+          <span style="width:64px; height:71px; clip-path:var(--dl-hex); background:linear-gradient(150deg,#D9944A,#6B3A18); display:grid; place-items:center; color:#1B0F07"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"/><path d="m9 12 2 2 4-4"/></svg></span>
+        </div>
+        <div class="glassx prin" style="justify-content:center">
+          <h3>Hex usage rules</h3>
+          <p>Filled gold hex = active / primary. Soft gold hex = feature accent. Neutral hex = inert step. Copper hex = trust &amp; governance. One filled hex per view maximum.</p>
+          <div style="display:flex; gap:8px; margin-top:6px; flex-wrap:wrap"><span class="pill">clip-path: --hex-clip</span><span class="pill">ratio 0.9 : 1</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 06 SURFACES -->
+    <section id="surfaces">
+      <span class="dl-eyebrow">06 — Surfaces &amp; elevation</span>
+      <h2 class="dl-h2">Liquid glass &amp; honest depth</h2>
+      <p class="dl-lead">The interface is built from translucent glass layered over warm ink. Three glass tiers, plus true 3D cards that lift toward the cursor with specular sheen and cast shadows — the flagship's signature material.</p>
+      <div class="grid g3" style="margin-top:34px">
+        <div class="glassx" style="padding:26px; min-height:150px; display:flex; flex-direction:column; justify-content:space-between"><span class="lbl-demo">Glass · standard</span><div><div style="font-size:14px; font-weight:600">blur 22px</div><div style="font-family:var(--dl-fmono); font-size:10.5px; color:var(--dl-subtle); margin-top:4px">.glass · cards, nav</div></div></div>
+        <div style="border-radius:22px; padding:26px; min-height:150px; display:flex; flex-direction:column; justify-content:space-between; background:rgba(232,179,23,0.08); border:1px solid rgba(232,179,23,0.28); -webkit-backdrop-filter:blur(40px) saturate(140%); backdrop-filter:blur(40px) saturate(140%); box-shadow:0 24px 60px -20px rgba(0,0,0,0.7), 0 0 40px -10px rgba(232,179,23,0.25)"><span class="lbl-demo">Glass · gold</span><div><div style="font-size:14px; font-weight:600">blur 40px + glow</div><div style="font-family:var(--dl-fmono); font-size:10.5px; color:var(--dl-subtle); margin-top:4px">.glass-gold · CTAs, modal</div></div></div>
+        <div style="border-radius:22px; padding:26px; min-height:150px; display:flex; flex-direction:column; justify-content:space-between; background:linear-gradient(160deg, rgba(40,36,31,0.74), rgba(13,12,11,0.86)); border:1px solid rgba(255,255,255,0.16); box-shadow:0 46px 90px -50px rgba(0,0,0,0.95), inset 0 1.6px 0 rgba(255,255,255,0.34)"><span class="lbl-demo">Card · 3D lift</span><div><div style="font-size:14px; font-weight:600">tilt + translateZ</div><div style="font-family:var(--dl-fmono); font-size:10.5px; color:var(--dl-subtle); margin-top:4px">.spot · Why section</div></div></div>
+      </div>
+      <div class="glassx" style="margin-top:16px; padding:22px 26px">
+        <div style="font-family:var(--dl-fmono); font-size:11px; letter-spacing:0.14em; color:var(--dl-subtle); text-transform:uppercase">Elevation shadows</div>
+        <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:18px; align-items:center">
+          <div style="width:82px; height:60px; border-radius:12px; background:#1A1816; box-shadow:0 1px 2px rgba(0,0,0,0.4)"></div>
+          <div style="width:82px; height:60px; border-radius:12px; background:#1A1816; box-shadow:0 2px 8px rgba(0,0,0,0.45)"></div>
+          <div style="width:82px; height:60px; border-radius:12px; background:#1A1816; box-shadow:0 10px 30px -8px rgba(0,0,0,0.6)"></div>
+          <div style="width:82px; height:60px; border-radius:12px; background:#1A1816; box-shadow:0 24px 60px -16px rgba(0,0,0,0.7)"></div>
+          <div style="width:82px; height:60px; border-radius:12px; background:#1A1816; box-shadow:0 40px 100px -24px rgba(0,0,0,0.78), 0 0 40px -12px rgba(232,179,23,0.35)"></div>
+        </div>
+        <div style="display:flex; flex-wrap:wrap; gap:16px; margin-top:8px; font-family:var(--dl-fmono); font-size:10px; color:var(--dl-subtle)"><span style="width:82px">xs</span><span style="width:82px">sm</span><span style="width:82px">md</span><span style="width:82px">lg</span><span style="width:82px">xl + glow</span></div>
+      </div>
+    </section>
+
+    <!-- 07 MOTION -->
+    <section id="motion">
+      <span class="dl-eyebrow">07 — Motion</span>
+      <h2 class="dl-h2">Choreography with intent</h2>
+      <p class="dl-lead">Motion is a language of easing curves and durations. Everything decelerates (ease-out); interactive elements overshoot slightly (spring). Signature behaviours: kinetic type reveals, scroll-scrubbed sections, magnetic buttons, a custom cursor, and a particle flow-field hero.</p>
+      <div class="glassx" style="margin-top:34px">
+        <div class="motion-row"><span class="k">ease-out</span><span class="d">Default for reveals, entrances, hovers</span><span class="v">cubic-bezier(.22,1,.36,1)</span></div>
+        <div class="motion-row"><span class="k">ease-inout</span><span class="d">Loops, ticker, ambient sweeps</span><span class="v">cubic-bezier(.65,0,.35,1)</span></div>
+        <div class="motion-row"><span class="k">spring</span><span class="d">Buttons, chips, magnetic pull, pop</span><span class="v">cubic-bezier(.34,1.56,.64,1)</span></div>
+        <div class="motion-row"><span class="k">fast 140ms</span><span class="d">Taps, toggles, micro-feedback</span><span class="v">--dur-fast</span></div>
+        <div class="motion-row"><span class="k">base 240ms</span><span class="d">Most transitions</span><span class="v">--dur-base</span></div>
+        <div class="motion-row"><span class="k">slow 420–680ms</span><span class="d">Reveals, section transitions, curtains</span><span class="v">--dur-slow / --dur-slower</span></div>
+      </div>
+      <div class="dd do" style="margin-top:16px"><div class="h"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Rule</div><ul><li>Every animation must have a <b>reduced-motion</b> fallback that shows the end-state instantly.</li><li>Nothing loops purely for decoration where content lives — ambient loops belong to background only.</li><li>Scroll-driven motion is smoothed through a single shared frame loop, never per-element scroll listeners.</li></ul></div>
+    </section>
+
+    <!-- 08 COMPONENTS -->
+    <section id="components">
+      <span class="dl-eyebrow">08 — Components</span>
+      <h2 class="dl-h2">Building blocks</h2>
+      <p class="dl-lead">A small, opinionated kit. Buttons carry the 3D pressable treatment; labels and pills use mono; glass frames wrap live content.</p>
+      <div class="glassx" style="margin-top:34px; padding:32px; display:flex; flex-direction:column; gap:26px">
+        <div style="display:flex; flex-wrap:wrap; gap:14px; align-items:center"><button class="btn btn-primary">Book a demo <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg></button><button class="btn btn-glass">Explore products</button><button class="btn btn-outline">Email us</button></div>
+        <hr class="dl-rule" />
+        <div style="display:flex; flex-wrap:wrap; gap:12px; align-items:center"><span class="lbl-demo">Section label</span><span class="pill"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>OUTCOME · 50–60% ROI</span><span class="dl-chip"><b>24/7</b> OPERATION</span><span class="dl-chip"><b>0</b> NEW HIRES</span></div>
+        <hr class="dl-rule" />
+        <div style="display:flex; flex-wrap:wrap; gap:14px"><div class="pill" style="background:rgba(79,180,119,0.14); border-color:rgba(79,180,119,0.4); color:#9BE0B6"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>RESOLVED</div><div class="pill" style="background:rgba(232,179,23,0.16); color:#F1D971">RESOLVING</div><div class="pill" style="background:rgba(217,148,74,0.16); border-color:rgba(217,148,74,0.4); color:#D9944A">TO HUMAN</div></div>
+      </div>
+    </section>
+
+    <!-- 09 VOICE -->
+    <section id="voice">
+      <span class="dl-eyebrow">09 — Voice &amp; tone</span>
+      <h2 class="dl-h2">How Laive speaks</h2>
+      <p class="dl-lead">Confident, concrete, and outcome-first. We speak to operators and executives — never to hobbyists. We quantify. We remove hype words and replace them with results.</p>
+      <div class="grid g2" style="margin-top:34px">
+        <div class="glassx prin"><h3 class="dl-grad" style="font-size:22px">We sound like</h3><ul style="margin:6px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px"><li style="color:var(--dl-muted); font-size:14px; line-height:1.55">Decisive — "Move first." "Outcome as a Service."</li><li style="color:var(--dl-muted); font-size:14px; line-height:1.55">Quantified — "50–60% ROI", "24/7", "zero new hires".</li><li style="color:var(--dl-muted); font-size:14px; line-height:1.55">Plain-spoken about value: money, time, errors.</li><li style="color:var(--dl-muted); font-size:14px; line-height:1.55">Governed &amp; credible — we name real frameworks.</li></ul></div>
+        <div class="glassx prin"><h3 style="font-size:22px; color:var(--danger,#E5533D)">We avoid</h3><ul style="margin:6px 0 0; padding-left:18px; display:flex; flex-direction:column; gap:8px"><li style="color:var(--dl-muted); font-size:14px; line-height:1.55">Hype without proof — "revolutionary", "magical".</li><li style="color:var(--dl-muted); font-size:14px; line-height:1.55">Jargon for its own sake or feature dumps.</li><li style="color:var(--dl-muted); font-size:14px; line-height:1.55">Emoji, exclamation stacks, and filler adjectives.</li><li style="color:var(--dl-muted); font-size:14px; line-height:1.55">Tool-talk before outcome-talk.</li></ul></div>
+      </div>
+    </section>
+
+    <!-- 10 SPACE -->
+    <section id="space">
+      <span class="dl-eyebrow">10 — Space &amp; grid</span>
+      <h2 class="dl-h2">A 4px rhythm</h2>
+      <p class="dl-lead">All spacing derives from a 4px base. Sections breathe on a fluid rhythm; content caps at 1400px with generous gutters. Radii are soft, with the angular hex reserved for the motif.</p>
+      <div class="grid g2" style="margin-top:34px">
+        <div class="glassx" style="padding:26px"><div style="font-family:var(--dl-fmono); font-size:11px; letter-spacing:0.14em; color:var(--dl-subtle); text-transform:uppercase; margin-bottom:16px">Spacing scale (4px base)</div><div style="display:flex; align-items:flex-end; gap:8px; flex-wrap:wrap">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:6px"><div style="width:16px; height:16px; background:rgba(232,179,23,0.3); border:1px solid var(--dl-gold)"></div><span style="font-family:var(--dl-fmono); font-size:9px; color:var(--dl-subtle)">4</span></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:6px"><div style="width:16px; height:24px; background:rgba(232,179,23,0.3); border:1px solid var(--dl-gold)"></div><span style="font-family:var(--dl-fmono); font-size:9px; color:var(--dl-subtle)">8</span></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:6px"><div style="width:16px; height:32px; background:rgba(232,179,23,0.3); border:1px solid var(--dl-gold)"></div><span style="font-family:var(--dl-fmono); font-size:9px; color:var(--dl-subtle)">16</span></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:6px"><div style="width:16px; height:48px; background:rgba(232,179,23,0.3); border:1px solid var(--dl-gold)"></div><span style="font-family:var(--dl-fmono); font-size:9px; color:var(--dl-subtle)">24</span></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:6px"><div style="width:16px; height:64px; background:rgba(232,179,23,0.3); border:1px solid var(--dl-gold)"></div><span style="font-family:var(--dl-fmono); font-size:9px; color:var(--dl-subtle)">32</span></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:6px"><div style="width:16px; height:88px; background:rgba(232,179,23,0.3); border:1px solid var(--dl-gold)"></div><span style="font-family:var(--dl-fmono); font-size:9px; color:var(--dl-subtle)">64</span></div>
+        </div></div>
+        <div class="glassx" style="padding:26px"><div style="font-family:var(--dl-fmono); font-size:11px; letter-spacing:0.14em; color:var(--dl-subtle); text-transform:uppercase; margin-bottom:16px">Radii</div><div style="display:flex; gap:14px; flex-wrap:wrap; align-items:center">
+          <div style="display:flex; flex-direction:column; align-items:center; gap:7px"><div style="width:56px; height:56px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); border-radius:10px"></div><span style="font-family:var(--dl-fmono); font-size:9.5px; color:var(--dl-subtle)">sm 10</span></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:7px"><div style="width:56px; height:56px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); border-radius:20px"></div><span style="font-family:var(--dl-fmono); font-size:9.5px; color:var(--dl-subtle)">lg 20</span></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:7px"><div style="width:56px; height:56px; background:rgba(255,255,255,0.05); border:1px solid rgba(255,255,255,0.14); border-radius:28px"></div><span style="font-family:var(--dl-fmono); font-size:9.5px; color:var(--dl-subtle)">xl 28</span></div>
+          <div style="display:flex; flex-direction:column; align-items:center; gap:7px"><div style="width:56px; height:62px; background:rgba(232,179,23,0.14); border:1px solid rgba(232,179,23,0.34); clip-path:var(--dl-hex)"></div><span style="font-family:var(--dl-fmono); font-size:9.5px; color:var(--dl-subtle)">hex</span></div>
+        </div></div>
+      </div>
+    </section>
+
+    <!-- 11 DO/DONT -->
+    <section id="dodont">
+      <span class="dl-eyebrow">11 — In practice</span>
+      <h2 class="dl-h2">Do &amp; Don't</h2>
+      <div class="grid g2" style="margin-top:34px">
+        <div class="dd do"><div class="h"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Do</div><ul><li>Spend gold on the single most important action per view.</li><li>Let ink and negative space carry the composition.</li><li>Use glass + depth to establish hierarchy, not decoration.</li><li>Quantify claims; lead with outcomes.</li><li>Ship reduced-motion and keyboard-accessible states.</li></ul></div>
+        <div class="dd dont"><div class="h"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>Don't</div><ul><li>Fill the screen with gold — it stops being premium.</li><li>Stack gradients or add glow to everything.</li><li>Use emoji, or fonts outside the three families.</li><li>Animate for its own sake or loop over content.</li><li>Introduce new colors instead of the ink/gold/copper system.</li></ul></div>
+      </div>
+      <div class="glassx" style="margin-top:40px; padding:34px; text-align:center; display:flex; flex-direction:column; gap:10px; align-items:center">
+        <span class="lbl-demo">Laive AI — Design Language v1.0</span>
+        <div style="font-family:var(--dl-fdisplay); font-size:clamp(20px,3vw,30px); text-transform:uppercase; letter-spacing:0.02em">Built to help you lead.</div>
+        <p style="margin:0; color:var(--dl-subtle); font-family:var(--dl-fmono); font-size:11px; letter-spacing:0.12em">POWERED BY DATA · DRIVEN BY AI</p>
+      </div>
+    </section>
+  </main>
+</div>
+<div class="toast" id="dlToast">Copied</div>
+
+<template id="__bundler_thumbnail">
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#070605"/><polygon points="50,20 76,34 76,64 50,80 24,64 24,34" fill="none" stroke="#E8B317" stroke-width="3"/><text x="50" y="58" font-family="monospace" font-size="20" fill="#E8B317" text-anchor="middle">L</text></svg>
+</template>
+
+<script>
+  (function () {
+    // scrollspy
+    var links = Array.prototype.slice.call(document.querySelectorAll('#dlNav a'));
+    var map = {};
+    links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+    var io = new IntersectionObserver(function (ents) {
+      ents.forEach(function (e) {
+        if (e.isIntersecting) {
+          links.forEach(function (l) { l.classList.remove('on'); });
+          if (map[e.target.id]) map[e.target.id].classList.add('on');
+        }
+      });
+    }, { rootMargin: '-30% 0px -60% 0px' });
+    document.querySelectorAll('section[id]').forEach(function (s) { io.observe(s); });
+
+    // click-to-copy swatches
+    var toast = document.getElementById('dlToast');
+    var tT;
+    document.querySelectorAll('.swatch[data-copy]').forEach(function (sw) {
+      sw.addEventListener('click', function () {
+        var tok = sw.getAttribute('data-copy');
+        var txt = 'var(' + tok + ')';
+        if (navigator.clipboard) navigator.clipboard.writeText(txt).catch(function () {});
+        toast.textContent = 'Copied  ' + txt;
+        toast.classList.add('on');
+        clearTimeout(tT);
+        tT = setTimeout(function () { toast.classList.remove('on'); }, 1400);
+      });
+    });
+  })();
+</script>
+</body>
+</html>

@@ -1,0 +1,109 @@
+/* ============================================================
+   LAIVE AI — COLOR TOKENS
+   Anchored to the brand marks: bright gold #F0D000, deep
+   mustard #C0A000, copper texture #603010 → #C07030, on ink.
+   Default theme is DARK (gold-on-black), matching the logo.
+   ============================================================ */
+
+:root {
+  /* ---- Brand core ---- */
+  --brand-gold:        #E8B317; /* primary gold */
+  --brand-gold-bright: #F7D64A; /* highlight / gradient top */
+  --brand-gold-deep:   #B8860B; /* deep mustard */
+  --brand-copper:      #B06A2E; /* textured-logo mid */
+  --brand-copper-deep: #6B3A18; /* textured-logo shadow */
+  --brand-copper-lite: #D9944A; /* textured-logo highlight */
+
+  /* ---- Gold scale ---- */
+  --gold-50:  #FCF6DD;
+  --gold-100: #F7E9AE;
+  --gold-200: #F1D971;
+  --gold-300: #EDC93B;
+  --gold-400: #E8B317; /* = brand-gold */
+  --gold-500: #CE9C12;
+  --gold-600: #AE830F;
+  --gold-700: #86650E;
+  --gold-800: #5C470C;
+  --gold-900: #382C09;
+
+  /* ---- Ink / warm neutrals (near-black, slightly warm) ---- */
+  --white:    #FFFFFF;
+  --ink-50:   #F5F1EA;
+  --ink-100:  #E8E2D6;
+  --ink-200:  #CFC7B9;
+  --ink-300:  #A69E90;
+  --ink-400:  #7B7468;
+  --ink-500:  #544F47;
+  --ink-600:  #3B3731;
+  --ink-700:  #2C2925;
+  --ink-750:  #22201D;
+  --ink-800:  #1A1816;
+  --ink-850:  #131110;
+  --ink-900:  #0C0B0A;
+  --ink-950:  #070605;
+
+  /* ---- Semantic status ---- */
+  --success:  #4FB477;
+  --success-bg: rgba(79,180,119,0.14);
+  --warning:  #E8B317;
+  --warning-bg: rgba(232,179,23,0.14);
+  --danger:   #E5533D;
+  --danger-bg: rgba(229,83,61,0.14);
+  --info:     #4C8DD6;
+  --info-bg:  rgba(76,141,214,0.14);
+
+  /* ============================================================
+     SEMANTIC ALIASES  (use these in components)
+     ============================================================ */
+  --bg:              var(--ink-900);
+  --bg-deep:         var(--ink-950);
+  --bg-elevated:     var(--ink-850);
+  --surface:         var(--ink-800);
+  --surface-2:       var(--ink-750);
+  --surface-3:       var(--ink-700);
+
+  --text:            #F3EEE4; /* warm white */
+  --text-strong:     var(--white);
+  --text-muted:      var(--ink-300);
+  --text-subtle:     var(--ink-400);
+  --text-on-gold:    #17130A; /* near-black on gold surfaces */
+  --text-on-copper:  #1B0F07;
+
+  --accent:          var(--brand-gold);
+  --accent-hover:    var(--gold-300);
+  --accent-press:    var(--gold-500);
+  --accent-soft:     rgba(232,179,23,0.12);
+  --accent-soft-2:   rgba(232,179,23,0.20);
+
+  --border:          rgba(232,179,23,0.14);
+  --border-soft:     rgba(255,255,255,0.07);
+  --border-strong:   rgba(232,179,23,0.32);
+  --ring:            rgba(232,179,23,0.55);
+
+  /* ---- Brand gradients ---- */
+  --grad-gold:   linear-gradient(135deg, var(--brand-gold-bright) 0%, var(--brand-gold) 45%, var(--brand-gold-deep) 100%);
+  --grad-copper: linear-gradient(150deg, var(--brand-copper-lite) 0%, var(--brand-copper) 48%, var(--brand-copper-deep) 100%);
+  --grad-ink:    linear-gradient(180deg, var(--ink-850) 0%, var(--ink-950) 100%);
+  --grad-gold-text: linear-gradient(100deg, var(--brand-gold-bright), var(--brand-gold) 60%, var(--brand-copper-lite));
+  --grad-halo:   radial-gradient(60% 60% at 50% 0%, rgba(232,179,23,0.22) 0%, rgba(232,179,23,0) 70%); /* @kind color */
+}
+
+/* Optional LIGHT scope — for print, docs, some social posts */
+:root .on-light,
+.theme-light {
+  --bg:            #FBF8F1;
+  --bg-deep:       #F3EEE2;
+  --bg-elevated:   #FFFFFF;
+  --surface:       #FFFFFF;
+  --surface-2:     #F6F1E6;
+  --surface-3:     #EFE8D8;
+  --text:          #1A1710;
+  --text-strong:   #0C0B0A;
+  --text-muted:    #5C5648;
+  --text-subtle:   #8A8271;
+  --accent:        var(--brand-gold-deep);
+  --accent-soft:   rgba(184,134,11,0.12);
+  --border:        rgba(184,134,11,0.24);
+  --border-soft:   rgba(26,23,16,0.10);
+  --border-strong: rgba(184,134,11,0.45);
+}

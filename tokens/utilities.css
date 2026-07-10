@@ -1,0 +1,125 @@
+/* ============================================================
+   LAIVE AI — UTILITIES & BASE
+   Global helpers that ship to consumers: glass, glow, gradient
+   text, hex motif, textured surfaces, brand backgrounds.
+   ============================================================ */
+
+/* ---- Base resets (opt-in via .laive-base on a wrapper, or applied to body) ---- */
+.laive-base,
+body.laive {
+  background: var(--bg);
+  color: var(--text);
+  font-family: var(--font-body);
+  font-size: var(--body-size);
+  line-height: var(--body-lh);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+/* ---- Typographic helpers ---- */
+.laive-label {
+  font-family: var(--font-display);
+  font-size: var(--text-xs);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 400;
+}
+.laive-display {
+  font-family: var(--font-display);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-tight);
+}
+.laive-heading {
+  font-family: var(--font-heading);
+  font-weight: var(--fw-bold);
+  letter-spacing: var(--ls-tight);
+  line-height: var(--lh-heading);
+}
+.text-gradient-gold {
+  background: var(--grad-gold-text);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ---- Glass surfaces (pronounced) ---- */
+.glass {
+  background: var(--glass-bg);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+}
+.glass-light {
+  background: var(--glass-bg-2);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border);
+  box-shadow: var(--glass-shadow);
+  border-radius: var(--radius-lg);
+}
+.glass-gold {
+  background: var(--glass-bg-gold);
+  -webkit-backdrop-filter: blur(var(--glass-blur-lg)) saturate(var(--glass-saturate));
+  backdrop-filter: blur(var(--glass-blur-lg)) saturate(var(--glass-saturate));
+  border: 1px solid var(--glass-border-gold);
+  box-shadow: var(--glass-shadow-gold);
+  border-radius: var(--radius-lg);
+}
+/* Specular sheen overlay for glass — add as ::before on the element */
+.glass-sheen { position: relative; overflow: hidden; }
+.glass-sheen::before {
+  content: "";
+  position: absolute; inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.16) 0%, rgba(255,255,255,0) 42%);
+  pointer-events: none;
+}
+
+/* ---- Glow ---- */
+.glow-gold { box-shadow: var(--glow-gold); }
+.glow-gold-sm { box-shadow: var(--glow-gold-sm); }
+
+/* ---- Hex motif ---- */
+.hex-clip { clip-path: var(--hex-clip); }
+
+/* ---- Brand backgrounds ---- */
+.bg-halo { background-image: var(--grad-halo); }
+.bg-grid {
+  background-image:
+    linear-gradient(rgba(232,179,23,0.045) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(232,179,23,0.045) 1px, transparent 1px);
+  background-size: 56px 56px;
+}
+.bg-dots {
+  background-image: radial-gradient(rgba(232,179,23,0.10) 1px, transparent 1.4px);
+  background-size: 22px 22px;
+}
+/* Copper micro-texture (echoes the 3D logo grain), pure CSS */
+.bg-copper-grain {
+  background-color: var(--brand-copper-deep);
+  background-image:
+    radial-gradient(rgba(217,148,74,0.5) 0.6px, transparent 0.7px),
+    radial-gradient(rgba(107,58,24,0.7) 0.6px, transparent 0.7px);
+  background-size: 4px 4px, 5px 5px;
+  background-position: 0 0, 2px 3px;
+}
+
+/* ---- 3D copper text (for hero words) ---- */
+.text-3d-copper {
+  color: var(--brand-copper-lite);
+  text-shadow:
+    0 1px 0 var(--brand-copper),
+    0 2px 0 var(--brand-copper),
+    0 3px 0 var(--brand-copper-deep),
+    0 4px 0 var(--brand-copper-deep),
+    0 6px 12px rgba(0,0,0,0.6);
+}
+
+/* ---- Divider ---- */
+.laive-rule {
+  height: 1px; border: 0;
+  background: linear-gradient(90deg, transparent, var(--border-strong), transparent);
+}
