@@ -2,21 +2,50 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
+<base href="/ui_kits/website-flagship/" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Laive AI</title>
-<meta http-equiv="refresh" content="0; url=./ui_kits/website-flagship/index.html" />
-<link rel="canonical" href="./ui_kits/website-flagship/index.html" />
-<style>
-  html, body { margin: 0; height: 100%; background: #070605; color: #E8B317;
-    font-family: 'Space Mono', ui-monospace, monospace; display: grid; place-items: center; }
-  a { color: #E8B317; }
-</style>
-<script>
-  // Send visitors straight to the flagship site.
-  location.replace('./ui_kits/website-flagship/index.html');
-</script>
+<title>Laive AI — More revenue. Less time. Fewer errors.</title>
+<meta name="description" content="Laive AI is an AI-native IT advisory and implementation firm. Bespoke AI agents and automations that plug into your real operations — Outcome as a Service." />
+<meta name="theme-color" content="#070605" />
+<meta property="og:title" content="Laive AI — More revenue. Less time. Fewer errors." />
+<meta property="og:description" content="Bespoke AI agents and automations that plug into your real operations — Outcome as a Service." />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/png" href="../../assets/mark-gold.png" />
+<link rel="preload" as="image" href="../../assets/mark-gold.png" />
+<link rel="preload" as="image" href="assets/mark-3d-hero.png" fetchpriority="high" />
+<link rel="stylesheet" href="../../styles.css" />
+<link rel="stylesheet" href="flagship.css" />
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script src="../../_ds_bundle.js"></script>
 </head>
 <body>
-  <p>Loading Laive AI… <a href="./ui_kits/website-flagship/index.html">Enter&nbsp;→</a></p>
+<template id="__bundler_thumbnail">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect width="100" height="100" fill="#0B0A09"></rect><path d="M50 32 L65.6 41 V59 L50 68 L34.4 59 V41 Z" fill="none" stroke="#E8B317" stroke-width="4"></path></svg>
+</template>
+<div id="root"></div>
+<script defer fetchpriority="low" src="brand-fallback.js"></script>
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="fx.jsx"></script>
+<script type="text/babel" src="icons.jsx"></script>
+<script type="text/babel" src="canvas.jsx"></script>
+<script type="text/babel" src="hero.jsx"></script>
+<script type="text/babel" src="products.jsx"></script>
+<script type="text/babel" src="sections.jsx"></script>
+<script type="text/babel" src="partners.jsx"></script>
+<script type="text/babel" src="cal.jsx"></script>
+<script type="text/babel" src="contact.jsx"></script>
+<script type="text/babel" src="app.jsx"></script>
+<script type="text/babel">
+  const mountFs = () => {
+    if (window.FsApp && window.useTweaks) {
+      const FsApp = window.FsApp;
+      ReactDOM.createRoot(document.getElementById('root')).render(<FsApp />);
+      console.info('[perf] app mounted at ' + Math.round(performance.now()) + 'ms');
+    } else { setTimeout(mountFs, 40); }
+  };
+  mountFs();
+</script>
 </body>
 </html>
