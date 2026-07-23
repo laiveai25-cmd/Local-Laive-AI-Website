@@ -305,11 +305,11 @@ const FS_TESTIMONIALS = [
   },
   {
     q: 'We used to lose real time on processing leads via WhatsApp. Laive AI put a system in place that handles most of it for us — quotes go out faster, and my team can focus on the customer instead of driving conversations.',
-    name: 'Capt. Amir G', role: 'Managing Director — Flybird', ini: 'AG',
+    name: 'Capt. Amir G', role: 'Deputy MD — Flybird', ini: 'AG', site: 'flybird.aero',
   },
   {
     q: 'Parents look at your website before they trust you with their child. Our old one didn’t do justice to what we do on the pitch. Laive AI rebuilt it properly — enquiries have gone up, we’re taken more seriously, and I didn’t have to break the bank to get there.',
-    name: 'Coach Ahmad G', role: 'Founder & Head Coach — Yoshi Football Academy', ini: 'CA', site: 'yoshifa.com',
+    name: 'Coach Ahmad G', role: 'Founder & Head Coach — Yoshi Football Academy', ini: 'AG', site: 'yoshifa.com',
   },
 ];
 
