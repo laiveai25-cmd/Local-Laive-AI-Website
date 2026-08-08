@@ -8,7 +8,7 @@ const FS_PARTNERS = [
   {
     slug: 'stellar', inv: false,
     name: 'Stellar Technologies', role: 'TECHNOLOGY PARTNER',
-    text: 'Enterprise engineering depth behind our largest deployments — infrastructure, integration, and delivery at scale.',
+    text: 'Experts in Financial Services IT combining core banking, payment architectures, and fintech engineering with strict regulatory compliance.',
   },
   {
     slug: 'zoho', inv: false,
