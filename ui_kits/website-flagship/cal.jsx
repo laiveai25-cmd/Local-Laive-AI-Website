@@ -1,13 +1,13 @@
 /* Laive AI flagship — Cal.com booking embed.
-   Routing form: forms/b4eacc5f-a4ff-4d82-bd1d-35a22ea58364, namespace "inqui".
+   Event type: laive-ai-nzzql8/discovery-session, namespace "discovery-session".
    Themed dark + Laive gold. Graceful loader + "open in new tab" fallback if
    the embed is blocked (offline preview, CSP, ad-blockers). */
 const { useEffect: useEffectCal, useRef: useRefCal, useState: useStateCal } = React;
 
 const FS_CAL = {
-  namespace: 'inqui',
-  calLink: 'forms/b4eacc5f-a4ff-4d82-bd1d-35a22ea58364',
-  url: 'https://cal.com/forms/b4eacc5f-a4ff-4d82-bd1d-35a22ea58364',
+  namespace: 'discovery-session',
+  calLink: 'laive-ai-nzzql8/discovery-session',
+  url: 'https://cal.com/laive-ai-nzzql8/discovery-session',
   brand: '#E8B317',
 };
 
@@ -47,7 +47,7 @@ function FsCalInline() {
       ns('inline', {
         elementOrSelector: boxRef.current,
         calLink: FS_CAL.calLink,
-        config: { layout: 'month_view', theme: 'dark' },
+        config: { layout: 'month_view', theme: 'dark', useSlotsViewOnSmallScreen: 'true' },
       });
       ns('ui', {
         theme: 'dark',
