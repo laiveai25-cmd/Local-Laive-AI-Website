@@ -7632,7 +7632,7 @@ function FsFooter() {
       letterSpacing: '0.12em',
       color: 'var(--text-subtle)'
     }
-  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 LAIVE AI \u2014 ABUJA, NIGERIA"), /*#__PURE__*/React.createElement("span", null, "OUTCOME AS A SERVICE"), /*#__PURE__*/React.createElement("span", null, "LAIVEAI.COM")));
+  }, /*#__PURE__*/React.createElement("span", null, "\xA9 2026 LAIVE AI \u2014 F2, Akoya Residences, Abuja, Nigeria"), /*#__PURE__*/React.createElement("span", null, "OUTCOME AS A SERVICE"), /*#__PURE__*/React.createElement("span", null, "LAIVEAI.COM")));
 }
 Object.assign(window, {
   FsContact,
