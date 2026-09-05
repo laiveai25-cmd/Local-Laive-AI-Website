@@ -141,7 +141,7 @@ function FsFooter() {
         <a href="#top" className="foot-word" aria-label="Back to top">LAIVE&nbsp;AI</a>
       </div>
       <div className="fs-wrap" style={{ borderTop: '1px solid rgba(255,255,255,0.06)', marginTop: 'clamp(26px, 4vh, 44px)', padding: '20px clamp(22px, 4.5vw, 64px) 24px', display: 'flex', justifyContent: 'space-between', gap: 14, flexWrap: 'wrap', fontFamily: 'var(--font-mono)', fontSize: 11, letterSpacing: '0.12em', color: 'var(--text-subtle)' }}>
-        <span>© 2026 LAIVE AI — ABUJA, NIGERIA</span>
+        <span>© 2026 LAIVE AI — F2 Akoya Residences, Kado, Abuja, Nigeria</span>
         <span>OUTCOME AS A SERVICE</span>
         <span>LAIVEAI.COM</span>
       </div>
