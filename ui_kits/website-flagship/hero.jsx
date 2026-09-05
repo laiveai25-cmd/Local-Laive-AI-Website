@@ -147,7 +147,7 @@ function FsHero({ introDone, onBook, particles, speed }) {
           </h1>
           <div className="hero-fadein" style={{ '--d': '0.6s', maxWidth: 580 }}>
             <p style={{ margin: 0, fontSize: 'clamp(16px, 1.6vw, 19px)', lineHeight: 1.65, color: 'var(--text-muted)' }}>
-              We design and deploy bespoke AI agents and automations that plug into your real operations.
+              We design and deploy bespoke AI agents, Application and Automations that plug into your real operations.
               Outcome as a Service — nothing less.
             </p>
           </div>
